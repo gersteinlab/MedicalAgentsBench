@@ -518,9 +518,7 @@ def process_intermediate_query(question, examplers, model, args):
             if num_yes == 0:
                 break
         
-        if num_yes == 0:
-            break
-
+        # Collect the current answers even when discussion stops early.
         tmp_final_answer = {}
         for i, agent in enumerate(medical_agents):
             response, response_usage = agent.chat(f"Now that you've interacted with other medical experts, remind your expertise and the comments from other experts and make your final answer to the given question:\n{question}\nAnswer: ")
@@ -530,6 +528,11 @@ def process_intermediate_query(question, examplers, model, args):
 
         round_answers[round_name] = tmp_final_answer
         final_answer = tmp_final_answer
+
+        if num_yes == 0:
+            break
+        if n < num_rounds:
+            round_opinions[n + 1] = tmp_final_answer.copy()
 
     print('\nInteraction Log')        
     myTable = PrettyTable([''] + [f"Agent {i+1} ({agent_emoji[i]})" for i in range(len(medical_agents))])
