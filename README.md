@@ -5,7 +5,7 @@
 
 <p align="center">
    📑&nbsp; <a href="https://arxiv.org/abs/2503.07459" target="_blank">Paper</a>
-   | 📊&nbsp; <a href="https://huggingface.co/datasets/super-dainiu/medagents-benchmark" target="_blank">Dataset on HuggingFace</a>
+   | 📊&nbsp; <a href="https://huggingface.co/datasets/super-dainiu/MedicalAgentsBench" target="_blank">Dataset on HuggingFace</a>
 </p>
 
 
@@ -48,7 +48,7 @@ You can load the MedAgentsBench dataset directly from Hugging Face by using the 
 ```python
 from datasets import load_dataset
 
-dataset = load_dataset("super-dainiu/medagents-benchmark", "MedQA")["test_hard"]  # or any other dataset
+dataset = load_dataset("super-dainiu/MedicalAgentsBench", "MedQA")["test_hard"]  # or any other dataset
 ```
 
 
@@ -73,7 +73,7 @@ The benchmark focuses on challenging medical questions, specifically selecting q
 
 All agent evaluations are conducted on this test_hard subset.
 
-The repository data includes the confirmed label and Rho(D) question-text corrections from [issue #8](https://github.com/gersteinlab/MedicalAgentsBench/issues/8). The revised hard set has 891 questions: AfriMedQA `67020272…`, MedXpertQA-U `Text-242` (duplicate correct options), and MedBullets `92` (unavailable ECG) are excluded without replacement. Existing IDs are preserved. The committed predictions, figures, and reported scores predate this revision; the Hugging Face dataset has not yet been updated.
+The repository data includes the confirmed label and Rho(D) question-text corrections from [issue #8](https://github.com/gersteinlab/MedicalAgentsBench/issues/8). The revised hard set has 891 questions: AfriMedQA `67020272…`, MedXpertQA-U `Text-242` (duplicate correct options), and MedBullets `92` (unavailable ECG) are excluded without replacement. Existing IDs are preserved. The [Hugging Face dataset](https://huggingface.co/datasets/super-dainiu/MedicalAgentsBench/commit/655f9706ad00e8480ebdc1dbd9a68c1c4da284f7) is synchronized with these corrections. Performance tables in `plots/table1_performance.ipynb` are recomputed from existing predictions using the revised labels. Only runs covering every remaining question are included. MMLU `12213` and MMLU-Pro `6108`/`6109` are omitted from these scores because their inputs changed and require reruns. Original prediction files, figures, and paper results are retained.
 
 ## Original Datasets
 
