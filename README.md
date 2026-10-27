@@ -63,15 +63,17 @@ The benchmark focuses on challenging medical questions, specifically selecting q
 | medqa        | 100                      |
 | pubmedqa     | 100                      |
 | medmcqa      | 100                      |
-| medbullets   | 89                       |
+| medbullets   | 88                       |
 | mmlu         | 73                       |
 | mmlu-pro     | 100                      |
-| afrimedqa    | 32                       |
+| afrimedqa    | 31                       |
 | medexqa      | 100                      |
 | medxpertqa-r | 100                      |
-| medxpertqa-u | 100                      |
+| medxpertqa-u | 99                       |
 
 All agent evaluations are conducted on this test_hard subset.
+
+The repository data includes the confirmed label and Rho(D) question-text corrections from [issue #8](https://github.com/gersteinlab/MedicalAgentsBench/issues/8). The revised hard set has 891 questions: AfriMedQA `67020272…`, MedXpertQA-U `Text-242` (duplicate correct options), and MedBullets `92` (unavailable ECG) are excluded without replacement. Existing IDs are preserved. The committed predictions, figures, and reported scores predate this revision; the Hugging Face dataset has not yet been updated.
 
 ## Original Datasets
 
